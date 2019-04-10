@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 //import from the node modules directory that's why the @ sign
 import { AngularFireModule } from '@angular/fire'; 
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -20,7 +21,8 @@ import { environment } from '../environments/environment';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase) //initialize the imported angular fire module and conect it to firebase
+    AngularFireModule.initializeApp(environment.firebase), //initialize the imported angular fire module and conect it to firebase
+    AngularFireAuthModule
   ],
   providers: [
     StatusBar,

@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
-import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.page.html',
-  styleUrls: ['./signup.page.scss'],
+  selector: 'app-signin',
+  templateUrl: './signin.page.html',
+  styleUrls: ['./signin.page.scss'],
 })
-export class SignupPage implements OnInit {
+export class SigninPage implements OnInit {
 
-  signUpForm: FormGroup;
+  signInForm: FormGroup;
 
-  constructor( 
+  constructor(
     private authService:AuthService, 
     private formBuilder:FormBuilder, 
     private router:Router 
@@ -20,15 +20,14 @@ export class SignupPage implements OnInit {
 
   ngOnInit() {
     //attach reactive forms module to the form and grabbing the field from it
-    this.signUpForm = this.formBuilder.group({
+    this.signInForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email ] ],
       password: ['', [ Validators.required, Validators.minLength(6) ] ]
     });
   }
   
-  //using the signup method
-  signUp( formData ){
-    this.authService.signUp(formData.email, formData.password)
+  signIn( formData ){
+    this.authService.signIn(formData.email, formData.password)
     .then( (response)=> { 
       console.log(response);
       //successful
