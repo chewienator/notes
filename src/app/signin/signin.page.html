@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>signin</ion-title>
+    <ion-title>Sign in</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,9 +15,12 @@
         <ion-input type="email" placeholder="user@example.com" formControlName="email"></ion-input>
       </ion-item>
       <ion-item>
-          <ion-label>Password</ion-label>
-          <ion-input type="password" placeholder="Minimum 6 characters" formControlName="password"></ion-input>
-        </ion-item>          
+        <ion-label>Password</ion-label>
+        <ion-input type="password" placeholder="Minimum 6 characters" formControlName="password"></ion-input>
+      </ion-item>          
+      <ion-item lines="none">
+        Don't have an account? <a routerLink="/signup">Sign up</a>
+      </ion-item>
     </ion-list>
     <ion-button slot="start" type="submit" [disabled]="!signInForm.valid">Login</ion-button>   
   </form>
